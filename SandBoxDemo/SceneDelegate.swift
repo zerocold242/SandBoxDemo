@@ -10,17 +10,23 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    func getDocumentsURL() -> URL {
+           let documentsURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+           let doucmentsURL = documentsURLs[0]
+           return doucmentsURL
+       }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let viewController = ViewController()
+        let documentsVC = DocumentsViewController(fileURL: getDocumentsURL(), directoryTitle: getDocumentsURL().lastPathComponent)
+        let documentsNC = UINavigationController(rootViewController: documentsVC)
         
         self.window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
-        window?.rootViewController = viewController
+        window?.rootViewController = documentsNC
         window?.makeKeyAndVisible()
     }
 
