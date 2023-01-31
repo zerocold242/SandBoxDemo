@@ -14,7 +14,6 @@
 		5C8717B02918292300663FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8717AE2918292300663FE0 /* LaunchScreen.storyboard */; };
 		5CB6827729392396008A87D5 /* FileManagerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */; };
 		5CB68279293925B8008A87D5 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB68278293925B8008A87D5 /* FileManagerService.swift */; };
-		5CB682922976FF51008A87D5 /* f1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5CB6827E2976FF51008A87D5 /* f1.jpeg */; };
 		5CB682A9297ABBEE008A87D5 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB682A8297ABBEE008A87D5 /* TextPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		5C8717B12918292300663FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceProtocol.swift; sourceTree = "<group>"; };
 		5CB68278293925B8008A87D5 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
-		5CB6827E2976FF51008A87D5 /* f1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = f1.jpeg; path = ../../HWkontent/Navigation/f1.jpeg; sourceTree = "<group>"; };
 		5CB682A8297ABBEE008A87D5 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +69,6 @@
 				5C8717A52918292200663FE0 /* SceneDelegate.swift */,
 				5C8717AE2918292300663FE0 /* LaunchScreen.storyboard */,
 				5C8717B12918292300663FE0 /* Info.plist */,
-				5CB6827E2976FF51008A87D5 /* f1.jpeg */,
 			);
 			path = SandBoxDemo;
 			sourceTree = "<group>";
@@ -136,7 +133,6 @@
 			files = (
 				5C8717B02918292300663FE0 /* LaunchScreen.storyboard in Resources */,
 				5C8717AD2918292300663FE0 /* Assets.xcassets in Resources */,
-				5CB682922976FF51008A87D5 /* f1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
