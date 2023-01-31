@@ -139,7 +139,6 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
             let directoryPath = URL(fileURLWithPath: (path + "/" + documents[indexPath.row]))
             let nextController = DocumentsViewController(fileURL: directoryPath, directoryTitle: directoryPath.lastPathComponent)
             nextController.path = selectedPath
-            navigationController?.popViewController(animated: true)
             navigationController?.pushViewController(nextController, animated: true)
         }
     }
