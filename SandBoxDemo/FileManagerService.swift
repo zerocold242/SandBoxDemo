@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FileManagerService: FileManagerServiceProtocol {
     
@@ -32,10 +33,11 @@ func createDirectory(folderPath: String) {
     }
 }
 
-    func createFile(currentDirectory: URL, newFile: URL) {
+    func createFile(currentDirectory: URL, newFile: URL, image: UIImage) {
             let fileURL = currentDirectory.appendingPathComponent(newFile.lastPathComponent)
+   
             do {
-                FileManager.default.createFile(atPath: fileURL.path, contents: Data())
+                FileManager.default.createFile(atPath: fileURL.path, contents: image.jpegData(compressionQuality: 1.0))
             }
         }
     

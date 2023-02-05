@@ -21,6 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]) 
+        
         let documentsVC = DocumentsViewController(fileURL: getDocumentsURL(), directoryTitle: getDocumentsURL().lastPathComponent)
         let documentsNC = UINavigationController(rootViewController: documentsVC)
         

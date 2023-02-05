@@ -147,11 +147,11 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DocumentsViewController: UIImagePickerControllerDelegate {
     //сохраняем файл из галереи
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.imageURL] as! URL
+        let imageURL = info[.imageURL] as! URL
+        guard let image = info[.originalImage] as? UIImage else { return }
         self.dismiss(animated: true, completion: nil)
-        FileManagerService.shared.createFile(currentDirectory: fileURL, newFile: image)
-        contents = FileManagerService.shared.contentsOfDirectory(currentDirectory: fileURL)
-        self.docsTableView.reloadData()
+            FileManagerService.shared.createFile(currentDirectory: fileURL, newFile: imageURL, image: image)
+            self.docsTableView.reloadData()
     }
 }
 
