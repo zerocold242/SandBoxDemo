@@ -26,7 +26,6 @@ class TextPicker {
                 completion?(text)
             }
         }
-        
         let alertCancel = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(alertOK)
         alertController.addAction(alertCancel)

@@ -12,6 +12,7 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
     var fileURL: URL
     var contents: [URL] = []
     var directoryTitle: String
+    
     //переменная показывающая путь к документу
     var path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
@@ -77,6 +78,7 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
     @objc private func addFile ( _ : Any) {
         present(imagePicker, animated: true)
     }
+    
     //создание папки
     @objc private func addDirectory(){
         TextPicker.defaultPicker.getText(showTextPickerIn: self,
@@ -94,7 +96,6 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
         setupNavigationBar()
         setupView()
         view.backgroundColor = .white
-        
     }
 }
 
@@ -108,6 +109,7 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         //название ячейки
         cell.textLabel?.text = documents[indexPath.row]
+        cell.imageView?.image = UIImage(contentsOfFile: (self.path + "/" + (documents[indexPath.row])))
         //проверяем файл это или папка и если папка добавляем индикатор кликабельности ячейки
         var objcBool: ObjCBool = false
         FileManager.default.fileExists(atPath: path + "/" + documents[indexPath.row], isDirectory: &objcBool)
@@ -126,6 +128,7 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
             let pathForItem = path + "/" + documents[indexPath.row]
             FileManagerService.shared.removeContent(pathForItem: pathForItem)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
     
@@ -134,8 +137,8 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
         //проверяем файл или папка
         var objcBool: ObjCBool = false
         FileManager.default.fileExists(atPath: selectedPath, isDirectory: &objcBool)
+        //если это папка то переходим
         if objcBool.boolValue {
-            //если это папка то переходим
             let directoryPath = URL(fileURLWithPath: (path + "/" + documents[indexPath.row]))
             let nextController = DocumentsViewController(fileURL: directoryPath, directoryTitle: directoryPath.lastPathComponent)
             nextController.path = selectedPath
@@ -147,11 +150,15 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DocumentsViewController: UIImagePickerControllerDelegate {
     //сохраняем файл из галереи
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let imageURL = info[.imageURL] as! URL
         guard let image = info[.originalImage] as? UIImage else { return }
         self.dismiss(animated: true, completion: nil)
-            FileManagerService.shared.createFile(currentDirectory: fileURL, newFile: imageURL, image: image)
-            self.docsTableView.reloadData()
+        DispatchQueue.main.async {
+            TextPicker.defaultPicker.getText(showTextPickerIn: self, title: "Add image", message: "Create image name") { text in
+                let imagePath = URL(fileURLWithPath: (self.path + "/" + text))
+                FileManagerService.shared.createFile(currentDirectory: self.fileURL, newFile: imagePath, image: image)
+                self.docsTableView.reloadData()
+            }
+        }
     }
 }
 
