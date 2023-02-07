@@ -33,8 +33,8 @@ func createDirectory(folderPath: String) {
     }
 }
 
-    func createFile(currentDirectory: URL, newFile: URL, image: UIImage) {
-            let fileURL = currentDirectory.appendingPathComponent(newFile.lastPathComponent)
+    func createFile(currentDirectory: URL, fileName: String, image: UIImage) {
+            let fileURL = currentDirectory.appendingPathComponent(fileName)
    
             do {
                 FileManager.default.createFile(atPath: fileURL.path, contents: image.jpegData(compressionQuality: 1.0))

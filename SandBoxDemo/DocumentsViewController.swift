@@ -105,6 +105,8 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
         return documents.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         //название ячейки
@@ -128,7 +130,6 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
             let pathForItem = path + "/" + documents[indexPath.row]
             FileManagerService.shared.removeContent(pathForItem: pathForItem)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
         }
     }
     
@@ -152,12 +153,9 @@ extension DocumentsViewController: UIImagePickerControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         self.dismiss(animated: true, completion: nil)
-        DispatchQueue.main.async {
-            TextPicker.defaultPicker.getText(showTextPickerIn: self, title: "Add image", message: "Create image name") { text in
-                let imagePath = URL(fileURLWithPath: (self.path + "/" + text))
-                FileManagerService.shared.createFile(currentDirectory: self.fileURL, newFile: imagePath, image: image)
+            TextPicker.defaultPicker.getText(showTextPickerIn: self, title: "Save image", message: "Enter file name") { text in
+                FileManagerService.shared.createFile(currentDirectory: self.fileURL, fileName: text, image: image)
                 self.docsTableView.reloadData()
-            }
         }
     }
 }
