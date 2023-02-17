@@ -7,7 +7,12 @@
 
 import UIKit
 
-class DocumentsViewController: UIViewController, UINavigationControllerDelegate {
+protocol SortContentsDelegate {
+    func sortingAZ()
+}
+
+class DocumentsViewController: UIViewController, UINavigationControllerDelegate, SortContentsDelegate {
+    
     
     var fileURL: URL
     var contents: [URL] = []
@@ -52,9 +57,6 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
     
     private func setupNavigationBar() {
         navigationItem.title = directoryTitle
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.isTranslucent = true
         let addFiles =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFile))
         let addDirectory = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(addDirectory))
         navigationItem.rightBarButtonItems = [addFiles, addDirectory]
@@ -75,6 +77,32 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
         ])
     }
     
+    //сортируем контент по алфавиту
+    internal func sortingAZ() {
+        contents = FileManagerService.shared.contentsOfDirectory(currentDirectory: fileURL)
+        if UserDefaults.standard.bool(forKey: "A - Z") == true ||
+            (UserDefaults.standard.object(forKey: "A - Z") != nil) == false {
+            contents.sort(by: {$0.lastPathComponent < $1.lastPathComponent})
+        } else {
+            contents.sort(by: {$1.lastPathComponent < $0.lastPathComponent})
+        }
+        docsTableView.reloadData()
+    }
+    
+    //private func sortingAZ() {
+    //    let isSorted = UserDefaults.standard.object(forKey: "A - Z") as? Bool ?? true
+    //    if isSorted == true {
+    //        contents = FileManagerService.shared.contentsOfDirectory(currentDirectory: fileURL).sorted(by: { (URL1: URL, URL2: URL) -> Bool in
+    //            return URL1.pathComponents.last! < URL2.pathComponents.last!
+    //        })
+    //    } else {
+    //        contents = FileManagerService.shared.contentsOfDirectory(currentDirectory: fileURL).sorted(by: { (URL1: URL, URL2: URL) -> Bool in
+    //            return URL1.pathComponents.last! > URL2.pathComponents.last!
+    //        })
+    //    }
+    //    docsTableView.reloadData()
+    //}
+    
     @objc private func addFile ( _ : Any) {
         present(imagePicker, animated: true)
     }
@@ -86,7 +114,8 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
                                          message: "Enter folder name") {text in
             let folderPath = self.path + "/" + text
             FileManagerService.shared.createDirectory(folderPath: folderPath)
-            self.docsTableView.reloadData()
+            self.sortingAZ()
+            //self.docsTableView.reloadData()
         }
     }
     
@@ -96,6 +125,13 @@ class DocumentsViewController: UIViewController, UINavigationControllerDelegate 
         setupNavigationBar()
         setupView()
         view.backgroundColor = .white
+        contents = FileManagerService.shared.contentsOfDirectory(currentDirectory: fileURL)
+        sortingAZ()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sortingAZ()
     }
 }
 
@@ -153,9 +189,10 @@ extension DocumentsViewController: UIImagePickerControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         self.dismiss(animated: true, completion: nil)
-            TextPicker.defaultPicker.getText(showTextPickerIn: self, title: "Save image", message: "Enter file name") { text in
-                FileManagerService.shared.createFile(currentDirectory: self.fileURL, fileName: text, image: image)
-                self.docsTableView.reloadData()
+        TextPicker.defaultPicker.getText(showTextPickerIn: self, title: "Save image", message: "Enter file name") { text in
+            FileManagerService.shared.createFile(currentDirectory: self.fileURL, fileName: text, image: image)
+            self.sortingAZ()
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -15,6 +15,15 @@
 		5CB6827729392396008A87D5 /* FileManagerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */; };
 		5CB68279293925B8008A87D5 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB68278293925B8008A87D5 /* FileManagerService.swift */; };
 		5CB682A9297ABBEE008A87D5 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB682A8297ABBEE008A87D5 /* TextPicker.swift */; };
+		5CF31FD62992E3EA0053D1F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FD52992E3EA0053D1F5 /* SettingsViewController.swift */; };
+		5CF31FD9299D07890053D1F5 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FD8299D07890053D1F5 /* LoginInspector.swift */; };
+		5CF31FDC299D22E80053D1F5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5CF31FDB299D22E80053D1F5 /* KeychainAccess */; };
+		5CF31FDE299D2A580053D1F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FDD299D2A580053D1F5 /* LoginViewController.swift */; };
+		5CF31FE1299D5CA50053D1F5 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE0299D5CA40053D1F5 /* WarningAlert.swift */; };
+		5CF31FE5299D669F0053D1F5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE4299D669F0053D1F5 /* CustomButton.swift */; };
+		5CF31FE7299D675D0053D1F5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE6299D675D0053D1F5 /* CustomTextField.swift */; };
+		5CF31FE9299E7E620053D1F5 /* DocumentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE8299E7E620053D1F5 /* DocumentsCoordinator.swift */; };
+		5CF31FED29A0079B0053D1F5 /* ChangePassAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +37,14 @@
 		5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceProtocol.swift; sourceTree = "<group>"; };
 		5CB68278293925B8008A87D5 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
 		5CB682A8297ABBEE008A87D5 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
+		5CF31FD52992E3EA0053D1F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5CF31FD8299D07890053D1F5 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		5CF31FDD299D2A580053D1F5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5CF31FE0299D5CA40053D1F5 /* WarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningAlert.swift; sourceTree = "<group>"; };
+		5CF31FE4299D669F0053D1F5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		5CF31FE6299D675D0053D1F5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		5CF31FE8299E7E620053D1F5 /* DocumentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCoordinator.swift; sourceTree = "<group>"; };
+		5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePassAlert.swift; path = ../../../../../../.Trash/ChangePassAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF31FDC299D22E80053D1F5 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,17 +78,57 @@
 		5C8717A22918292200663FE0 /* SandBoxDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5C8717A32918292200663FE0 /* AppDelegate.swift */,
-				5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */,
-				5C8717A72918292200663FE0 /* DocumentsViewController.swift */,
-				5CB68278293925B8008A87D5 /* FileManagerService.swift */,
-				5CB682A8297ABBEE008A87D5 /* TextPicker.swift */,
+				5CF31FE3299D66740053D1F5 /* CustomModels */,
+				5CF31FE2299D5FBA0053D1F5 /* Alerts */,
+				5CF31FDF299D5BB00053D1F5 /* FileManager */,
+				5CF31FD7299D04360053D1F5 /* Authorization */,
 				5C8717AC2918292300663FE0 /* Assets.xcassets */,
+				5C8717A32918292200663FE0 /* AppDelegate.swift */,
 				5C8717A52918292200663FE0 /* SceneDelegate.swift */,
 				5C8717AE2918292300663FE0 /* LaunchScreen.storyboard */,
 				5C8717B12918292300663FE0 /* Info.plist */,
 			);
 			path = SandBoxDemo;
+			sourceTree = "<group>";
+		};
+		5CF31FD7299D04360053D1F5 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				5CF31FD8299D07890053D1F5 /* LoginInspector.swift */,
+				5CF31FDD299D2A580053D1F5 /* LoginViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		5CF31FDF299D5BB00053D1F5 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				5CF31FD52992E3EA0053D1F5 /* SettingsViewController.swift */,
+				5CB6827629392396008A87D5 /* FileManagerServiceProtocol.swift */,
+				5CB68278293925B8008A87D5 /* FileManagerService.swift */,
+				5C8717A72918292200663FE0 /* DocumentsViewController.swift */,
+				5CF31FE8299E7E620053D1F5 /* DocumentsCoordinator.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		5CF31FE2299D5FBA0053D1F5 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				5CF31FE0299D5CA40053D1F5 /* WarningAlert.swift */,
+				5CB682A8297ABBEE008A87D5 /* TextPicker.swift */,
+				5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		5CF31FE3299D66740053D1F5 /* CustomModels */ = {
+			isa = PBXGroup;
+			children = (
+				5CF31FE4299D669F0053D1F5 /* CustomButton.swift */,
+				5CF31FE6299D675D0053D1F5 /* CustomTextField.swift */,
+			);
+			path = CustomModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +147,9 @@
 			dependencies = (
 			);
 			name = SandBoxDemo;
+			packageProductDependencies = (
+				5CF31FDB299D22E80053D1F5 /* KeychainAccess */,
+			);
 			productName = SandBoxDemo;
 			productReference = 5C8717A02918292200663FE0 /* SandBoxDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +178,9 @@
 				Base,
 			);
 			mainGroup = 5C8717972918292200663FE0;
+			packageReferences = (
+				5CF31FDA299D22E80053D1F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 5C8717A12918292200663FE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,12 +207,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF31FDE299D2A580053D1F5 /* LoginViewController.swift in Sources */,
+				5CF31FE9299E7E620053D1F5 /* DocumentsCoordinator.swift in Sources */,
 				5C8717A82918292200663FE0 /* DocumentsViewController.swift in Sources */,
 				5CB682A9297ABBEE008A87D5 /* TextPicker.swift in Sources */,
+				5CF31FD62992E3EA0053D1F5 /* SettingsViewController.swift in Sources */,
 				5CB6827729392396008A87D5 /* FileManagerServiceProtocol.swift in Sources */,
 				5C8717A42918292200663FE0 /* AppDelegate.swift in Sources */,
 				5C8717A62918292200663FE0 /* SceneDelegate.swift in Sources */,
+				5CF31FE5299D669F0053D1F5 /* CustomButton.swift in Sources */,
+				5CF31FED29A0079B0053D1F5 /* ChangePassAlert.swift in Sources */,
+				5CF31FE7299D675D0053D1F5 /* CustomTextField.swift in Sources */,
+				5CF31FE1299D5CA50053D1F5 /* WarningAlert.swift in Sources */,
 				5CB68279293925B8008A87D5 /* FileManagerService.swift in Sources */,
+				5CF31FD9299D07890053D1F5 /* LoginInspector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +430,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5CF31FDA299D22E80053D1F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5CF31FDB299D22E80053D1F5 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CF31FDA299D22E80053D1F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C8717982918292200663FE0 /* Project object */;
 }
