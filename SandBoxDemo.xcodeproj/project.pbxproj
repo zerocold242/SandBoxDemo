@@ -23,7 +23,7 @@
 		5CF31FE5299D669F0053D1F5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE4299D669F0053D1F5 /* CustomButton.swift */; };
 		5CF31FE7299D675D0053D1F5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE6299D675D0053D1F5 /* CustomTextField.swift */; };
 		5CF31FE9299E7E620053D1F5 /* DocumentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FE8299E7E620053D1F5 /* DocumentsCoordinator.swift */; };
-		5CF31FED29A0079B0053D1F5 /* ChangePassAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */; };
+		5CF31FEF29A009C50053D1F5 /* ChangePassAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31FEE29A009C50053D1F5 /* ChangePassAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		5CF31FE4299D669F0053D1F5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		5CF31FE6299D675D0053D1F5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5CF31FE8299E7E620053D1F5 /* DocumentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCoordinator.swift; sourceTree = "<group>"; };
-		5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePassAlert.swift; path = ../../../../../../.Trash/ChangePassAlert.swift; sourceTree = "<group>"; };
+		5CF31FEE29A009C50053D1F5 /* ChangePassAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePassAlert.swift; path = ../../../../../../.Trash/ChangePassAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +115,9 @@
 		5CF31FE2299D5FBA0053D1F5 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				5CF31FEE29A009C50053D1F5 /* ChangePassAlert.swift */,
 				5CF31FE0299D5CA40053D1F5 /* WarningAlert.swift */,
 				5CB682A8297ABBEE008A87D5 /* TextPicker.swift */,
-				5CF31FEC29A0079B0053D1F5 /* ChangePassAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 				5C8717A42918292200663FE0 /* AppDelegate.swift in Sources */,
 				5C8717A62918292200663FE0 /* SceneDelegate.swift in Sources */,
 				5CF31FE5299D669F0053D1F5 /* CustomButton.swift in Sources */,
-				5CF31FED29A0079B0053D1F5 /* ChangePassAlert.swift in Sources */,
+				5CF31FEF29A009C50053D1F5 /* ChangePassAlert.swift in Sources */,
 				5CF31FE7299D675D0053D1F5 /* CustomTextField.swift in Sources */,
 				5CF31FE1299D5CA50053D1F5 /* WarningAlert.swift in Sources */,
 				5CB68279293925B8008A87D5 /* FileManagerService.swift in Sources */,

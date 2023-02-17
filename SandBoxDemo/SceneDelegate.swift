@@ -36,11 +36,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         return loginVC
     }
-    
-    struct TabBarModel {
-        let title: String
-        let image: UIImage?
-        let tag: Int
-    }
 }
 
