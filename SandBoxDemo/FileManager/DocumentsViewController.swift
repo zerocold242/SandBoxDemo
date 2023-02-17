@@ -13,7 +13,6 @@ protocol SortContentsDelegate {
 
 class DocumentsViewController: UIViewController, UINavigationControllerDelegate, SortContentsDelegate {
     
-    
     var fileURL: URL
     var contents: [URL] = []
     var directoryTitle: String
